@@ -3,3 +3,6 @@
         document.getElementById('overlay').remove();
     }, 3000);
 //});
+
+
+setTimeout(function(){ alert("Hello"); }, 3000);
