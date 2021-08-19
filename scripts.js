@@ -7,9 +7,7 @@ function generateUrl() {
         let latitude = position.coords.latitude;
         let longitude = position.coords.longitude;
 
-
-        console.log(latitude);
-
+        console.log(window.location.protocol+window.location.hostname);
         
       });
 
