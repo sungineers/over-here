@@ -7,7 +7,9 @@ function generateUrl() {
         let latitude = position.coords.latitude;
         let longitude = position.coords.longitude;
 
-        console.log(window.location.href+"find.html?latitude="+latitude+"&longitude="+longitude);
+        let findUrl = window.location.href+"find.html?latitude="+latitude+"&longitude="+longitude;
+
+        document.getElementById('link').innerHTML = findUrl;
         
       });
 
