@@ -10,6 +10,8 @@ function generateUrl() {
         let findUrl = window.location.href+"find.html?latitude="+latitude+"&longitude="+longitude;
 
         document.getElementById('link').innerHTML = findUrl;
+
+        document.getElementById('link').href = findUrl;
         
       });
 
