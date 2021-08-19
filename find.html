@@ -16,12 +16,7 @@
 </head>
 
 <body style="margin: 0; overflow: hidden;">
-    <div id="overlay">
-        <div id="overlayContent">
-            <p>Hello World</p>
-        </div>
-    </div>
-    <a-scene vr-mode-ui="enabled: false" embedded arjs="sourceType: webcam; debugUIEnabled: false;" webxr="overlayElement: #overlay;>
+    <a-scene vr-mode-ui="enabled: false" embedded arjs="sourceType: webcam; debugUIEnabled: false;">
         <a-text value=" This content will always face you." look-at="[gps-camera]" scale="120 120 120"
         gps-entity-place="latitude: 38.883333; longitude: -77.000000;">
         </a-text>
