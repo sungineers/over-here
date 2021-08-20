@@ -11,10 +11,11 @@ window.onload = () => {
   const scene = document.querySelector('a-scene');
 
   // add place name
-  const placeText = document.createElement('a-link');
+  const placeText = document.createElement('a-text');
   placeText.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
-  placeText.setAttribute('title', "Here!");
-  placeText.setAttribute('scale', '15 15 15');
+  placeText.setAttribute('look-at', "[gps-camera]");
+  placeText.setAttribute('value', "Here!");
+  placeText.setAttribute('scale', '50 50 50');
   
   placeText.addEventListener('loaded', () => {
       window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'))
