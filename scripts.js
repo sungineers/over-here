@@ -13,9 +13,12 @@ window.onload = () => {
 
   const scene = document.querySelector('a-scene');
 
+  var place = "latitude: " + latitude + "; longitude: " + longitude + ";";
+  console.log(place);
+
   // add place name
-  const placeText = document.createElement('a-text');
-  placeText.setAttribute('gps-entity-place', "latitude: " + latitude + "; longitude: " + longitude + ";");
+  var placeText = document.createElement('a-text');
+  placeText.setAttribute('gps-entity-place', place);
   placeText.setAttribute('look-at', "[gps-camera]");
   placeText.setAttribute('value', "Here!");
   placeText.setAttribute('scale', '50 50 50');
