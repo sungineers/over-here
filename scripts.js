@@ -5,7 +5,7 @@ window.onload = () => {
   var longitude = urlParams.get('longitude');
 
   if (latitude == null || longitude == null) {
-    window.location.assign("/");
+    window.location.assign("index.html");
   }
 
   const scene = document.querySelector('a-scene');
