@@ -2,38 +2,56 @@
 <html>
 
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Over Here</title>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Over Here</title>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mini.css/3.0.1/mini-default.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mini.css/3.0.1/mini-default.min.css">
 </head>
 
 <body>
-    <div class="container">
-        <div class="row" style="text-align: center;">
-          <div class="col-sm">
-            </br>
-            </br>
-            </br>
-            </br>
-            <h1>Over Here!</h1>
+  <div class="container">
+    <div class="row" style="text-align: center;">
+      <div class="col-sm">
+        </br>
+        </br>
+        </br>
+        </br>
+        <h1>Over Here!</h1>
 
-            <h5>AR app to share where you are.</h5>
+        <h5>AR app to share where you are.</h5>
 
-            <p>Generate your link to share now.</p>
+        </br>
 
-            <button id="generateBtn" class="inverse" onclick="generateUrl()">Generate</button>
+        <p>Generate your link to share now.</p>
 
-            </br>
-            </br>
-            <a id="link"></a>
-          </div> 
-        </div>
+        <button id="generateBtn" class="inverse" onclick="generateUrl()">Generate</button>
+
+        </br>
+        </br>
+        <a id="link"></a>
       </div>
+    </div>
+  </div>
 
-    <script src="./scripts.js"></script>
+  <script>
+    function generateUrl() {
+      document.getElementById('generateBtn').innerHTML = "Regenerate";
+
+      navigator.geolocation.getCurrentPosition((position) => {
+
+        let latitude = position.coords.latitude;
+        let longitude = position.coords.longitude;
+
+        let findUrl = window.location.href + "find.html?latitude=" + latitude + "&longitude=" + longitude;
+
+        document.getElementById('link').innerHTML = "Share Me";
+        document.getElementById('link').href = findUrl;
+      });
+
+    }
+  </script>
 </body>
 
 </html>

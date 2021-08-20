@@ -1,20 +1,24 @@
-function generateUrl() {
-    document.getElementById('generateBtn').innerHTML = "Regenerate";
+window.onload = () => {
 
+  var urlParams = new URLSearchParams(window.location.search);
+  var latitude = urlParams.get('latitude');
+  var longitude = urlParams.get('longitude');
 
-    navigator.geolocation.getCurrentPosition((position) => {
+  if (latitude == null || longitude == null) {
+    window.location.assign("/");
+  }
 
-        let latitude = position.coords.latitude;
-        let longitude = position.coords.longitude;
+  const scene = document.querySelector('a-scene');
 
-        let findUrl = window.location.href+"find.html?latitude="+latitude+"&longitude="+longitude;
+  // add place name
+  const placeText = document.createElement('a-link');
+  placeText.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
+  placeText.setAttribute('title', place.name);
+  placeText.setAttribute('scale', '15 15 15');
+  
+  placeText.addEventListener('loaded', () => {
+      window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'))
+  });
 
-        document.getElementById('link').innerHTML = "Share Me";
-
-        document.getElementById('link').href = findUrl;
-        
-      });
-
-}
-
-
+  scene.appendChild(placeText);
+};
